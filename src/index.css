@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.typer {
+    margin-left: 10px;
+    border-radius: 0.75rem;
+    border: 1px outset black;
+    width: 80%;
+    
+}
+.typer-board {
+    margin:10px 10px 10px 10px;
+}
+.typer-row {
+    border-bottom:grey 1px;
+    margin-bottom: 10px;
+    border-bottom-style:solid;
+}
+.typer-char {
+    font-size: 25px;
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: grey;
+    margin: 3px 3px 3px 3px;
+    display:inline;
+    text-align: center；
+}
+.input-hidden {
+    opacity:0;
+}

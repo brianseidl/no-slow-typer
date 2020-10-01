@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Typer from './Typer.js';
 
 
-export class Test extends React.Component {
+class Test extends Component {
   render() {
     return (
       <div>
-        <h1>Test Page</h1>
+        <Typer/>
       </div>
     );
   }
 }
+
+export default Test;

@@ -5,7 +5,7 @@ import {Route} from 'react-router-dom';
 
 import {Root} from './components/Root';
 import {Home} from './components/Home';
-import {Test} from './components/TestPage';
+import Test from './components/TestPage.js';
 
 
 class App extends React.Component {
