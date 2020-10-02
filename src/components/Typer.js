@@ -75,6 +75,9 @@ class Typer extends Component {
                 <div>
                     <p>index: {this.state.index}</p>
                 </div>
+                <div>
+                    <img src="https://media.giphy.com/media/dUfOKprhMpOxqK0GpK/giphy.gif" />
+                </div>
             </div>
         );
     }
