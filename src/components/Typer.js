@@ -22,7 +22,7 @@ class Typer extends Component {
         } else {
             // is wrong
             this.setState(prevState => ({
-                wrong: [prevState.wrong, this.state.index],
+                wrong: [...prevState.wrong, this.state.index],
                 index: this.state.index + 1
             }));
         }
