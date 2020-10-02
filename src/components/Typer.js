@@ -47,10 +47,10 @@ class Typer extends Component {
     render() {
         var chars = this.state.text.split('');
         const charblock = chars.map((c, i) => {
-            let status = "notEntered";
+            let status = "not-entered";
             
             if (i === this.state.index) {
-                status = "inFocus"
+                status = "active"
             } else if (i < this.state.index) {
                 status = "correct"
             }
@@ -71,9 +71,6 @@ class Typer extends Component {
                         {charblock}
                     </div>
                     <input id="inputBox" autoFocus="autoFocus" className="input-hidden" onKeyPress={this.handleKeyPress} onKeyDown={this.handleKeyDown}></input>
-                </div>
-                <div>
-                    <p>index: {this.state.index}</p>
                 </div>
                 <div>
                     <img src="https://media.giphy.com/media/dUfOKprhMpOxqK0GpK/giphy.gif" />

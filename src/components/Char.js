@@ -18,19 +18,8 @@ class Char extends Component {
     }
 
     render() {
-        let color;
-        if (this.state.status === "inFocus") {
-            color = "blue";
-        } else if (this.state.status === "correct") {
-            color = "green";
-        } else if (this.state.status === "incorrect") {
-            color = "red";
-        } else if (this.state.status === "notEntered") {
-            color = "black";
-        }
-
         return (
-            <div className="typer-char" style={{"color": color}}>
+            <div className={`typer-char letter-${this.state.status}`}>
                 {this.state.value}
             </div>
         );

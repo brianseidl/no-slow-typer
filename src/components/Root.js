@@ -10,7 +10,7 @@ TODO: This component will be rendered on every route
 export class Root extends React.Component {
   render() {
     return (
-      <div />
+      <div class="container" />
     )
   }
 }
