@@ -3,32 +3,67 @@ import PropTypes from 'prop-types';
 
 
 class Char extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: this.props.value,
-            status: this.props.status
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      expected: this.props.expected,
+      input: this.props.input,
+      isActive: this.props.isActive
+    };
+  }
+
+  /**
+  * TODO: This built in react function is soon to be depricated and should be replaced.
+  */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps !== this.props) {
+      this.setState({
+        input: nextProps.input,
+        isActive: nextProps.isActive
+      });
+    }
+  }
+
+  getClassNames() {
+    let res = "typer-char ";
+
+    if (this.state.isActive) {
+      res += "letter-active";
+    } else if (this.state.input) {
+      if (this.state.input === this.state.expected) {
+        res += "letter-correct";
+      } else {
+        res += "letter-incorrect";
+      }
+    } else {
+      res += "letter-not-entered";
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.status !== this.state.status) {
-            this.setState({status: nextProps.status});
-        }
-    }
+    return res;
+  }
 
-    render() {
-        return (
-            <div className={`typer-char letter-${this.state.status}`}>
-                {this.state.value}
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className={this.getClassNames()}>
+        {/*{this.state.input && this.state.input !== this.state.expected &&
+          <e className="wrong-animation">
+            {this.state.input}
+          </e>
+        */}
+        {this.state.expected}
+      </div>
+    );
+  }
 };
 
+Char.defaultProps = {
+  input: null,
+}
+
 Char.propTypes = {
-    value: PropTypes.string.isRequired,
-    status: PropTypes.oneOf(['inFocus', 'correct', 'incorrect', 'notEntered']).isRequired
+  isActive: PropTypes.bool,
+  expected: PropTypes.string.isRequired,
+  input: PropTypes.string
 };
 
 export default Char;

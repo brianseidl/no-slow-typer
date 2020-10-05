@@ -4,11 +4,7 @@ import Typer from './Typer.js';
 
 class Test extends Component {
   render() {
-    return (
-      <div>
-        <Typer/>
-      </div>
-    );
+    return (<Typer/>);
   }
 }
 

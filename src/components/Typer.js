@@ -1,83 +1,61 @@
+import {Container} from 'react-bootstrap';
+
 import React, {Component} from 'react';
 import Char from './Char.js';
 
 
 class Typer extends Component {
 
-    constructor(props){
-        super(props);
+  constructor(props){
+    super(props);
 
-        this.state = {
-            index: 0,
-            text: "Build apps, libraries, frameworks, plug-ins, and other executable code that run natively on Apple silicon. When you build executables on top of Apple frameworks and technologies, the only significant step you might need to take is to recompile your code for the arm64 architecture. If you rely on hardware-specific details or make assumptions about low-level features, modify your code as needed to support Apple silicon.",
-            wrong: []
-        };
-    }
+    this.state = {
+      //index: 0,
+      text: this.props.text,
+      wrong: [],
+      input: ""
+    };
+  }
 
-    handleKeyPress = (event) => {
-        // Read the keyboard input char
-        let key = event.key;
-        if (key === this.state.text[this.state.index]){
-            this.setState({index: this.state.index + 1});
-        } else {
-            // is wrong
-            this.setState(prevState => ({
-                wrong: [...prevState.wrong, this.state.index],
-                index: this.state.index + 1
-            }));
-        }
-    }
+  handleChange = (event) => {
+    this.setState({input: event.target.value});
+  }
 
-    handleKeyDown = (event) => {
-        // Basically look for backspace
-        let keyCode = event.keyCode;
-        if (keyCode === 8 && this.state.index > 0) {
-            this.setState({
-                wrong: this.state.wrong.filter((_, i) => _ !== this.state.index - 1),
-                index: this.state.index - 1
-            });
-        }
-    }
+  getFocus = () => {
+    var inputBox = document.getElementById("inputBox");
+    inputBox.focus();
+  }
 
-    getFocus = () => {
-        var inputBox = document.getElementById("inputBox");
-        inputBox.focus();
-    }
+  render() {
+    let textChars = this.state.text.split('');
+    let inputChars = this.state.input.split('');
 
-    render() {
-        var chars = this.state.text.split('');
-        const charblock = chars.map((c, i) => {
-            let status = "not-entered";
-            
-            if (i === this.state.index) {
-                status = "active"
-            } else if (i < this.state.index) {
-                status = "correct"
-            }
-            
-            if (this.state.wrong.includes(i)) {
-                status = "incorrect"
-            }
-            
-            return (
-                <Char status={status} value={c} />
-            );
-        });
+    const charblock = textChars.map((c, i) => {
+      let isActive = false; 
+      if (i === inputChars.length) {
+        isActive = true;
+      }
+      return (<Char key={i} isActive={isActive} expected={c} input={inputChars[i]} />);
+    });
 
-        return (
-            <div>
-                <div className="typer" onClick={this.getFocus}>
-                    <div className="typer-board">
-                        {charblock}
-                    </div>
-                    <input id="inputBox" autoFocus="autoFocus" className="input-hidden" onKeyPress={this.handleKeyPress} onKeyDown={this.handleKeyDown}></input>
-                </div>
-                <div>
-                    <img src="https://media.giphy.com/media/dUfOKprhMpOxqK0GpK/giphy.gif" />
-                </div>
-            </div>
-        );
-    }
+    return (
+      <div>
+        <Container onClick={this.getFocus} className="border border-dark rounded mt-5 px-4 py-2">
+          {charblock}
+          <input
+            id="inputBox"
+            autoFocus="autoFocus"
+            className="input-hidden"
+            onChange={this.handleChange}
+          />
+        </Container>
+      </div>
+    );
+  }
 };
+
+Typer.defaultProps = {
+  text: "Build apps, libraries, frameworks, plug-ins, and other executable code that run natively on Apple silicon. When you build executables on top of Apple frameworks and technologies, the only significant step you might need to take is to recompile your code for the arm64 architecture. If you rely on hardware-specific details or make assumptions about low-level features, modify your code as needed to support Apple silicon.",
+}
 
 export default Typer;
