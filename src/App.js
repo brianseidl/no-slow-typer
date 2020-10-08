@@ -4,9 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter} from 'react-router-dom';
 
 import {Root} from './components/Root';
-import {Home} from './components/Home';
+import Home from './components/Home';
 import Test from './components/TestPage.js';
-
 
 class App extends React.Component {
   render() {

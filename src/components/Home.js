@@ -1,12 +1,18 @@
 import React from 'react';
+import logo from '../logo.svg';
+import Mode from './Mode.js';
 
-
-export class Home extends React.Component {
+class Home extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Home Page</h1>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <Mode />
+        </header>
       </div>
     )
   }
 }
+
+export default Home;
