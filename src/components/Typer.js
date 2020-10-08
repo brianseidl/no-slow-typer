@@ -39,7 +39,6 @@ class Typer extends Component {
     });
 
     return (
-      <div>
         <Container onClick={this.getFocus} className="border border-dark rounded mt-5 px-4 py-2">
           {charblock}
           <input
@@ -49,7 +48,6 @@ class Typer extends Component {
             onChange={this.handleChange}
           />
         </Container>
-      </div>
     );
   }
 };
