@@ -3,7 +3,7 @@ import {Description} from './Description.js';
 import {Route} from 'react-router-dom';
 import {Test} from './TestPage.js';
 
-export class Mode extends React.Component {
+class Mode extends React.Component {
 
     constructor(props) {
       super(props);
@@ -30,26 +30,25 @@ export class Mode extends React.Component {
       }
     }
   
-    goTest() {
-        alert("test starts");
-    }
     render() {
   
       return (
         <div>
           <Description description={this.state.data} />
           <div className="Mode-Group">
-            <div className="Mode-Selection Mode-Selection-Short" onMouseEnter={() => this.setNewNumber("s")} onClick={() => this.goTest()}>
-              <span>Short</span>
+            <div className="Mode-Selection Mode-Selection-Short" onMouseEnter={() => this.setNewNumber("s")}>
+              <a href="/test">Short</a>
             </div>
-            <div className="Mode-Selection Mode-Selection-Medium" onMouseEnter={() => this.setNewNumber("m")} onClick={() => this.goTest()}>
-              <span>Medium</span>
+            <div className="Mode-Selection Mode-Selection-Medium" onMouseEnter={() => this.setNewNumber("m")}>
+              <a href="/test">Medium</a>
             </div>
-            <div className="Mode-Selection Mode-Selection-Long" onMouseEnter={() => this.setNewNumber("l")} onClick={() => this.goTest()}>
-              <span>Long</span>
+            <div className="Mode-Selection Mode-Selection-Long" onMouseEnter={() => this.setNewNumber("l")}>
+              <a href="/test">Long</a>
             </div>
           </div>
         </div>
       );
     }
   }
+
+  export default Mode;
