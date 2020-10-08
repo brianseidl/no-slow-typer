@@ -1,8 +1,7 @@
 import React from 'react';
-//import logo from './logo.svg';
-//import './App.css';
 import {Route} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter} from 'react-router-dom';
 
 import {Root} from './components/Root';
 import {Home} from './components/Home';
@@ -13,9 +12,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Route path={'/'} component={Root} />
-        <Route exact path={'/'} component={Home} />
-        <Route path={'/test'} component={Test} />
+        <BrowserRouter>
+          <Route path={'/'} component={Root} />
+          <Route exact path={'/'} component={Home} />
+          <Route path={'/test'} component={Test} />
+        </BrowserRouter>
       </div>
     );
   }
