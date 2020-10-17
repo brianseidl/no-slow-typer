@@ -1,7 +1,6 @@
 import React from 'react';
 import {Description} from './Description.js';
-import {Route} from 'react-router-dom';
-import {Test} from './TestPage.js';
+
 
 class Mode extends React.Component {
 
