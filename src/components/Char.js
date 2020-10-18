@@ -12,18 +12,6 @@ class Char extends Component {
     };
   }
 
-  /**
-  * TODO: This built in react function is soon to be depricated and should be replaced.
-  *
-  componentWillReceiveProps(nextProps) {
-    if (nextProps !== this.props) {
-      this.setState({
-        input: nextProps.input,
-        isActive: nextProps.isActive
-      });
-    }
-  }*/
-
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.input !== prevState.input || nextProps.isActive !== prevState.isActive) {
       return ({

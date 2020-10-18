@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom';
 
 import {Root} from './components/Root';
 import Home from './components/Home';
-import Test from './components/TestPage.js';
+import Typer from './components/Typer.js';
 
 class App extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Route path={'/'} component={Root} />
           <Route exact path={'/'} component={Home} />
-          <Route path={'/test'} component={Test} />
+          <Route path={'/test'} component={Typer} />
         </BrowserRouter>
       </div>
     );
