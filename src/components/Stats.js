@@ -26,7 +26,7 @@ class Stats extends Component {
     let wpm = Math.floor(((this.state.correctCount + this.state.incorrectCount) * 60) / (5 * timePassed / 1000));
 
     return (
-      <div>
+      <div data-testid="stats-div">
         {/* This is horrible, should be a clock that should always be rendering but idgaf */}
         <p>Time: {timePassed / 1000}s</p>
         <p>Correct chars: {this.state.correctCount}</p>
