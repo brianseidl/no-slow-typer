@@ -15,7 +15,7 @@ it("renders", () => {
 test('Text is intered into the text box', () => {
     render(<Typer text="Hello, World" />);
 
-    userEvent.type(screen.getByRole('textbox'),  'H');
+    userEvent.type(screen.getByRole('textbox'), 'H');
     expect(screen.getByRole('textbox')).toHaveValue('H');
 });
 
