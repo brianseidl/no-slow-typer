@@ -27,12 +27,37 @@ class Stats extends Component {
 
     return (
       <div data-testid="stats-div">
-        {/* This is horrible, should be a clock that should always be rendering but idgaf */}
-        <p>Time: {timePassed / 1000}s</p>
-        <p>Correct chars: {this.state.correctCount}</p>
-        <p>IncorrectCount: {this.state.incorrectCount}</p>
-        <p>Words per Minute: {wpm}</p>
-        <p>Error Percentage: {(100 * this.state.incorrectCount / (this.state.incorrectCount + this.state.correctCount)).toFixed(2)}%</p>
+        <table className="table table-striped table">
+          <thead >
+            <tr className="table-primary">
+              <th scope="col">Stat</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Time</th>
+              {/* This is horrible, should be a clock that should always be rendering but idgaf */}
+              <td>{timePassed / 1000}s</td>
+            </tr>
+            <tr>
+              <th scope="row">Correct count</th>
+              <td>{this.state.correctCount}</td>
+            </tr>
+            <tr>
+              <th scope="row">Incorrect count</th>
+              <td>{this.state.incorrectCount}</td>
+            </tr>
+            <tr>
+              <th scope="row">Words per Minute</th>
+              <td>{wpm}</td>
+            </tr>
+            <tr>
+              <th scope="row">Error Percentage</th>
+              <td>{(100 * this.state.incorrectCount / (this.state.incorrectCount + this.state.correctCount)).toFixed(2)}%</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     );
   }

@@ -24,6 +24,7 @@ class Typer extends Component {
       startTime: 0,
       timerStarted: false
     });
+    document.getElementById("inputBox").value = '';
   }
 
   handleChange = (event) => {
