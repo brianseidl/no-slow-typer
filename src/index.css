@@ -1,3 +1,8 @@
+#text-box {
+    max-height:500px;
+    overflow-y: scroll;
+}
+
 .typer-char {
     font-size: 30px;
     /*height: 48px;
@@ -12,6 +17,7 @@
 }
 
 .input-hidden {
+    position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
