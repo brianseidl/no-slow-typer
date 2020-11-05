@@ -14,7 +14,7 @@ class App extends React.Component {
         <BrowserRouter>
           <Route path={'/'} component={Root} />
           <Route exact path={'/'} component={Home} />
-          <Route path={'/test'} component={Typer} />
+          <Route path={'/test/:mode'} component={Typer} />
         </BrowserRouter>
       </div>
     );
