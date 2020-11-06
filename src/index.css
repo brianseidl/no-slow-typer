@@ -116,6 +116,23 @@ span {
     margin-bottom: 30px;
 }
 
+.Mode-Button {
+    color: white;
+}
+
+.Mode-Button:link{
+    color: white;
+} 
+
+.Mode-Button:visited {
+    color: white;
+}  
+
+.Mode-Button:hover {
+    color: white;
+    text-decoration:none;
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
