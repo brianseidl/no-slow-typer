@@ -34,7 +34,7 @@ class Typer extends Component {
 
   resetState = () => {
     this.setState({
-      text: this.props.text,
+      //text: this.props.text,
       input: "",
       startTime: 0,
       timerStarted: false
