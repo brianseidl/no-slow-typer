@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Char from './Char.js';
 import Stats from './Stats.js';
-//import { propTypes } from 'react-bootstrap/esm/Image';
 
 
 class Typer extends Component {
@@ -41,6 +40,10 @@ class Typer extends Component {
       timerStarted: false
     });
     document.getElementById("inputBox").value = '';
+
+    // scroll to top of text box
+    let textBox = document.getElementById("text-box");
+    textBox.scrollTop = 0;
   }
 
   handleChange = (event) => {
@@ -54,6 +57,13 @@ class Typer extends Component {
           timerStarted: true
         });
       }
+
+      // scroll the active char to the top every 150 charsj
+      if (event.target.value.length % 150 === 0){
+        let activeChar = document.getElementsByClassName('letter-active')[0];
+        // scroll into frame
+        activeChar.scrollIntoView();
+      }
     } else {
       this.resetState();
     }
@@ -65,7 +75,6 @@ class Typer extends Component {
   }
 
   render() {
-  
     let textChars = this.state.text.split('');
     let inputChars = this.state.input.split('');
     let correctCount = 0;
