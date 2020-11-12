@@ -96,33 +96,38 @@ class Typer extends Component {
     });
 
     return (
-      <Container onClick={this.getFocus} className="mt-5">
-        <Row>
-          <Col sm={8} className="border border-dark rounded px-4 py-2">
-            <div id="text-box">
-              <input
-                id="inputBox"
-                autoFocus="autoFocus"
-                className="input-hidden"
-                onChange={this.handleChange}
-              />
-              {charblock}
-            </div>
-          </Col>
-          <Col sm={4} className="border boarder-dark rounded">
-            {this.state.timerStarted &&
-              <Stats
-                correctCount={correctCount}
-                incorrectCount={incorrectCount}
-                startTime={this.state.startTime}
-              />
-            }
-            <Button onClick={this.resetState}>
-              clear
+      <div>
+        <div className="m-2" style={{postition: 'absolute'}}>
+          <a href="/"><Button>Back</Button></a>
+        </div>
+        <Container onClick={this.getFocus} className="mt-5">
+          <Row>
+            <Col sm={8} className="border border-dark rounded px-4 py-2">
+              <div id="text-box">
+                <input
+                  id="inputBox"
+                  autoFocus="autoFocus"
+                  className="input-hidden"
+                  onChange={this.handleChange}
+                />
+                {charblock}
+              </div>
+            </Col>
+            <Col sm={4} className="border boarder-dark rounded">
+              {this.state.timerStarted &&
+                <Stats
+                  correctCount={correctCount}
+                  incorrectCount={incorrectCount}
+                  startTime={this.state.startTime}
+                />
+              }
+              <Button onClick={this.resetState}>
+                clear
               </Button>
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
+      </div>
     );
   }
 };
