@@ -6,22 +6,22 @@ class Mode extends React.Component {
 
     constructor(props) {
       super(props);
-      this.state = { data: "Hovering on the buttons below to see the descriptions. Clicking the buttons to start a test." };
+      this.state = { data: "Clicking the buttons to start a test." };
       this.setNewNumber = this.setNewNumber.bind(this);
     };
   
     setNewNumber(i) {
       switch (i) {
         case "s":
-          this.setState({ data: "The description for short mode" })
+          this.setState({ data: "Short Mode Test" })
           break;
   
         case "m":
-          this.setState({ data: "The description for medium mode" })
+          this.setState({ data: "Medium Mode Test" })
           break;
   
         case "l":
-          this.setState({ data: "The description for long mode" })
+          this.setState({ data: "Long Mode Test" })
           break;
   
         default:
