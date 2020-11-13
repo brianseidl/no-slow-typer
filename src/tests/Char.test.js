@@ -15,7 +15,7 @@ it("renders", () => {
 test("char is blue when active", () => {
     render(<Char isActive={true} expected='H' input={null} />);
 
-    expect(screen.getByText(/H/)).toHaveClass("letter-activ");
+    expect(screen.getByText(/H/)).toHaveClass("letter-active");
 });
 
 test("char is red when char is incorrect", () => {
