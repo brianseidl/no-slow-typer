@@ -28,6 +28,9 @@ class Typer extends Component {
         case 'long':
           state.text = "Forget about mouse pads that just cover a portion of your desk, the SteelSeries QcK Prism Cloth 5XL is here to take over the entirely of your tabletop. At over 60 inches wide and over 30 inches deep, this mouse pad will cover up even some of the biggest gaming desks and standing desks. The QcK Prism Cloth 5XL is made of a thick, micro-woven cloth for a smooth-gliding surface with a fine texture that helps your mouse track accurately. Meanwhile, the underside has a rubberized surface to keep it firmly in place on your desk. That's only half the fun, though, as all models of the QcK Prism Cloth also feature an RGB light strip around the perimeter of the mouse pad. That light strip has two-zone lighting and supports the SteelSeries engine, so you can have it sync up with your other SteelSeries devices, flash with music, or even offer visual cues from your games."
           break;
+        default:
+          state.text = this.props.text;
+          break;
       }
     }
     this.state = state;
@@ -115,6 +118,7 @@ class Typer extends Component {
                   autoFocus="autoFocus"
                   className="input-hidden"
                   onChange={this.handleChange}
+                  maxLength={this.state.text.length-1}
                 />
                 {charblock}
               </div>
