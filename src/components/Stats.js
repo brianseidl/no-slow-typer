@@ -9,8 +9,26 @@ class Stats extends Component {
     this.state = {
       correctCount: this.props.correctCount,
       incorrectCount: this.props.incorrectCount,
-      startTime: this.props.startTime
+      startTime: this.props.startTime,
+      currTime: Date.now(),
+      isStopped: this.props.isStopped
     };
+  }
+
+  componentDidMount() {
+    this.intervalID = setInterval(
+      () => this.tick(),
+      100
+    );
+  }
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
+  }
+
+  tick() {
+    if (!this.state.isStopped) {
+      this.setState({ currTime: Date.now() });
+    }
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
@@ -22,7 +40,7 @@ class Stats extends Component {
 
   render() {
     // correct and inorrect chars used to calculate wpm
-    let timePassed = Date.now() - this.state.startTime;
+    let timePassed = this.state.currTime - this.state.startTime;
     let wpm = Math.floor(((this.state.correctCount + this.state.incorrectCount) * 60) / (5 * timePassed / 1000));
 
     return (
@@ -38,7 +56,7 @@ class Stats extends Component {
             <tr>
               <th scope="row">Time</th>
               {/* This is horrible, should be a clock that should always be rendering but idgaf */}
-              <td>{timePassed / 1000}s</td>
+              <td>{(timePassed / 1000)}s</td>
             </tr>
             <tr>
               <th scope="row">Correct count</th>
@@ -66,7 +84,8 @@ class Stats extends Component {
 Stats.propTypes = {
   correctCount: PropTypes.number.isRequired,
   incorrectCount: PropTypes.number.isRequired,
-  startTime: PropTypes.number.isRequired
+  startTime: PropTypes.number.isRequired,
+  isStopped: PropTypes.bool.isRequired
 };
 
 export default Stats;

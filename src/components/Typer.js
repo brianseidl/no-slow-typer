@@ -14,7 +14,8 @@ class Typer extends Component {
       text: this.props.text,
       input: "",
       startTime: 0,
-      timerStarted: false
+      timerStarted: false,
+      timerStopped: false,
     };
     if (this.props.match) {
       switch (this.props.match.params.mode) {
@@ -37,7 +38,8 @@ class Typer extends Component {
       //text: this.props.text,
       input: "",
       startTime: 0,
-      timerStarted: false
+      timerStarted: false,
+      timerStopped: false,
     });
     document.getElementById("inputBox").value = '';
 
@@ -49,7 +51,11 @@ class Typer extends Component {
   handleChange = (event) => {
     if (event.target.value) {
       if (this.state.timerStarted) {
-        this.setState({ input: event.target.value });
+        let timerStopped = false;
+        if (event.target.value.length >= this.state.text.length-1) {
+          timerStopped = true;
+        }
+        this.setState({ input: event.target.value, timerStopped: timerStopped});
       } else {
         this.setState({
           input: event.target.value,
@@ -119,6 +125,7 @@ class Typer extends Component {
                   correctCount={correctCount}
                   incorrectCount={incorrectCount}
                   startTime={this.state.startTime}
+                  isStopped={this.state.timerStopped}
                 />
               }
               <Button onClick={this.resetState}>
