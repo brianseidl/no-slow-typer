@@ -20,7 +20,7 @@ class Typer extends Component {
     if (this.props.match) {
       switch (this.props.match.params.mode) {
         case 'short':
-          state.text = "Mouse pads can also help improve the tracking of your mouse, as the textured surfaces give your mouse's sensor something tailor-made for it to see sliding by, ensuring you get all the performance your mouse is supposed to deliver. "
+          state.text = "Mouse pads can also help improve the tracking of your mouse, as the textured surfaces give your mouse's sensor something tailor-made for it to see sliding by, ensuring you get all the performance your mouse is supposed to deliver."
           break;
         case 'medium':
           state.text = "You should already know how important it is in gaming to have a great gaming mouse. But, where getting a great mouse and getting a subpar one can come down to a large difference in price, the same so with many gaming mouse pads. Not only is it worthwhile to pick up a quality mouse pad, but you have virtually no excuse. Most great mousepads don't cost all that much, and they'll be a huge step up over the budget barrel options you might find in an actual barrel at your local electronics store. A good gaming mouse pad can actually do more for you than you might think."
@@ -55,7 +55,7 @@ class Typer extends Component {
     if (event.target.value) {
       if (this.state.timerStarted) {
         let timerStopped = false;
-        if (event.target.value.length >= this.state.text.length-1) {
+        if (event.target.value.length >= this.state.text.length) {
           timerStopped = true;
         }
         this.setState({ input: event.target.value, timerStopped: timerStopped});
@@ -118,7 +118,7 @@ class Typer extends Component {
                   autoFocus="autoFocus"
                   className="input-hidden"
                   onChange={this.handleChange}
-                  maxLength={this.state.text.length-1}
+                  maxLength={this.state.text.length}
                 />
                 {charblock}
               </div>
