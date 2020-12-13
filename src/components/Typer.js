@@ -6,8 +6,14 @@ import Char from './Char.js';
 import Stats from './Stats.js';
 
 
+/**
+ * Component Typer
+ */
 class Typer extends Component {
-
+  /**
+   * React component constructor
+   * @param {object} props
+   */
   constructor(props) {
     super(props);
     let state = {
@@ -36,6 +42,16 @@ class Typer extends Component {
     this.state = state;
   }
 
+  /**
+   * resetState used to set the state of the component back to default.
+   *
+   * Preconditions:
+   *   - User clears the status of their current test
+   * Postconditions:
+   *   - Timer is reset and stopped
+   *   - Input is cleared
+   *   - Text box is scrolled to the top
+   */
   resetState = () => {
     this.setState({
       //text: this.props.text,
@@ -51,6 +67,19 @@ class Typer extends Component {
     textBox.scrollTop = 0;
   }
 
+  /**
+   * handleChange function used to update the current state when
+   *   a character is entered.
+   *
+   * Preconditions:
+   *   - User enters a character in the typing test.
+   * Postconditions:
+   *   - Timer is started if not started already
+   *   - Input is updated to match the current input
+   *   - Timer is stopped if the length of the input matches the length of test
+   *
+   * @param {object} event
+   */
   handleChange = (event) => {
     if (event.target.value) {
       if (this.state.timerStarted) {
@@ -78,11 +107,28 @@ class Typer extends Component {
     }
   }
 
+
+  /**
+  * getFocus function forces the user to focus on the text box
+  *
+  * Preconditions:
+  *   - User loads page
+  * Postconditions:
+  *   - User is focused and ready to type in the input box
+  */
   getFocus = () => {
     var inputBox = document.getElementById("inputBox");
     inputBox.focus();
   }
 
+  /**
+   * React render function.
+   *
+   * Preconditions:
+   *   - Status of the component is updated.
+   * Postconditions:
+   *   - Component is rendered on page with latest data.
+   */
   render() {
     let textChars = this.state.text.split('');
     let inputChars = this.state.input.split('');

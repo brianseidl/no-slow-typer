@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 
 class Char extends Component {
+  /**
+   * React component constructor
+   * @param {object} props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -40,6 +44,14 @@ class Char extends Component {
     return res;
   }
 
+  /**
+   * React render function.
+   *
+   * Preconditions:
+   *   - Status of the component is updated.
+   * Postconditions:
+   *   - Component is rendered on page with latest data.
+   */
   render() {
     return (
       <div className={this.getClassNames()}>

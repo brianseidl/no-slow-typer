@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 
 class Stats extends Component {
-
+  /**
+   * React component constructor
+   * @param {object} props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -15,22 +18,35 @@ class Stats extends Component {
     };
   }
 
+  /**
+   * componentDidMount is a built in React function that is executed
+   *   when the component is mounted.
+   */
   componentDidMount() {
     this.intervalID = setInterval(
-      () => this.tick(),
+      () => {
+        if (!this.state.isStopped) {
+          this.setState({ currTime: Date.now() });
+        }
+      },
       100
     );
   }
+
+  /**
+   * componentWillUnmount is a built in React function that is executed
+   *   when the component is unmounted
+   */
   componentWillUnmount() {
     clearInterval(this.intervalID);
   }
 
-  tick() {
-    if (!this.state.isStopped) {
-      this.setState({ currTime: Date.now() });
-    }
-  }
-
+  /**
+   * getDerivedStateFromProps is a function used by the react framework.
+   * Determines when to update the state given the props and prev state.
+   * @param {object} nextProps
+   * @param {object} prevState
+   */
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps !== prevState) {
       return (nextProps)
@@ -38,6 +54,14 @@ class Stats extends Component {
     return null;
   }
 
+  /**
+   * React render function.
+   *
+   * Preconditions:
+   *   - Status of the component is updated.
+   * Postconditions:
+   *   - Component is rendered on page with latest data.
+   */
   render() {
     // correct and inorrect chars used to calculate wpm
     let timePassed = this.state.currTime - this.state.startTime;
@@ -85,7 +109,6 @@ Stats.propTypes = {
   correctCount: PropTypes.number.isRequired,
   incorrectCount: PropTypes.number.isRequired,
   startTime: PropTypes.number.isRequired,
-  isStopped: PropTypes.bool.isRequired
 };
 
 export default Stats;

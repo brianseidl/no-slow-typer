@@ -3,6 +3,14 @@ import logo from '../logo.svg';
 import Mode from './Mode.js';
 
 class Home extends React.Component {
+  /**
+   * React render function.
+   *
+   * Preconditions:
+   *   - Status of the component is updated.
+   * Postconditions:
+   *   - Component is rendered on page with latest data.
+   */
   render() {
     return (
       <div className="App">
