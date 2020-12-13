@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# No Slow Typer
+
+A typing test developed by Brian Seidl and Yilun Yang.
 
 ## Available Scripts
 
