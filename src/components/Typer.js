@@ -109,13 +109,13 @@ class Typer extends Component {
 
 
   /**
-  * getFocus function forces the user to focus on the text box
-  *
-  * Preconditions:
-  *   - User loads page
-  * Postconditions:
-  *   - User is focused and ready to type in the input box
-  */
+   * getFocus function forces the user to focus on the text box
+   *
+   * Preconditions:
+   *   - User loads page
+   * Postconditions:
+   *   - User is focused and ready to type in the input box
+   */
   getFocus = () => {
     var inputBox = document.getElementById("inputBox");
     inputBox.focus();

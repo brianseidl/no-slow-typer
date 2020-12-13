@@ -9,26 +9,26 @@ import Typer from "../components/Typer";
 afterEach(cleanup);
 
 it("renders", () => {
-    const { asFragement } = render(<Typer />);
+  const { asFragement } = render(<Typer />);
 });
 
 test('Text is intered into the text box', () => {
-    render(<Typer text="Hello, World" />);
+  render(<Typer text="Hello, World" />);
 
-    userEvent.type(screen.getByRole('textbox'), 'H');
-    expect(screen.getByRole('textbox')).toHaveValue('H');
+  userEvent.type(screen.getByRole('textbox'), 'H');
+  expect(screen.getByRole('textbox')).toHaveValue('H');
 });
 
 test('Timer starts when text is entered', () => {
-    render(<Typer text="Hello, World" />);
+  render(<Typer text="Hello, World" />);
 
-    userEvent.type(screen.getByRole('textbox'), 'H');
-    expect(screen.queryByTestId('stats-div')).toBeTruthy();
+  userEvent.type(screen.getByRole('textbox'), 'H');
+  expect(screen.queryByTestId('stats-div')).toBeTruthy();
 });
 
 test('Timer does not start when text is not entered', () => {
-    render(<Typer text="Hello, World" />);
+  render(<Typer text="Hello, World" />);
 
-    // no user event
-    expect(screen.queryByTestId('stats-div')).toBeNull();
+  // no user event
+  expect(screen.queryByTestId('stats-div')).toBeNull();
 });

@@ -9,5 +9,5 @@ import Stats from "../components/Stats";
 afterEach(cleanup);
 
 it("renders", () => {
-    const { asFragement } = render(<Stats correctCount={1} incorrectCount={0} startTime={123456789} />);
+  const { asFragement } = render(<Stats correctCount={1} incorrectCount={0} startTime={123456789} />);
 });
