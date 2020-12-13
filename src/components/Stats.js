@@ -80,23 +80,23 @@ class Stats extends Component {
             <tr>
               <th scope="row">Time</th>
               {/* This is horrible, should be a clock that should always be rendering but idgaf */}
-              <td>{(timePassed / 1000)}s</td>
+              <td data-testid="time">{(timePassed / 1000)}s</td>
             </tr>
             <tr>
               <th scope="row">Correct count</th>
-              <td>{this.state.correctCount}</td>
+              <td data-testid="correct-count">{this.state.correctCount}</td>
             </tr>
             <tr>
               <th scope="row">Incorrect count</th>
-              <td>{this.state.incorrectCount}</td>
+              <td data-testid="incorrect-count">{this.state.incorrectCount}</td>
             </tr>
             <tr>
               <th scope="row">Words per Minute</th>
-              <td>{wpm}</td>
+              <td data-testid="wpm">{wpm}</td>
             </tr>
             <tr>
               <th scope="row">Error Percentage</th>
-              <td>{(100 * this.state.incorrectCount / (this.state.incorrectCount + this.state.correctCount)).toFixed(2)}%</td>
+              <td data-testid="error-percentage">{(100 * this.state.incorrectCount / (this.state.incorrectCount + this.state.correctCount)).toFixed(2)}%</td>
             </tr>
           </tbody>
         </table>
@@ -109,6 +109,7 @@ Stats.propTypes = {
   correctCount: PropTypes.number.isRequired,
   incorrectCount: PropTypes.number.isRequired,
   startTime: PropTypes.number.isRequired,
+  isStopped: PropTypes.bool
 };
 
 export default Stats;

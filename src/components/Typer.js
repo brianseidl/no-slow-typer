@@ -158,9 +158,10 @@ class Typer extends Component {
         <Container onClick={this.getFocus} className="mt-5">
           <Row>
             <Col sm={8} className="border border-dark rounded px-4 py-2">
-              <div id="text-box">
+              <div id="text-box" data-testid="text-box">
                 <input
                   id="inputBox"
+                  data-testid="inputBox"
                   autoFocus="autoFocus"
                   className="input-hidden"
                   onChange={this.handleChange}
