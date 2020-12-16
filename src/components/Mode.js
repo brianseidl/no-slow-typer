@@ -1,6 +1,5 @@
-import React from 'react';
-import {Description} from './Description.js';
-
+import React from "react";
+import { Description } from "./Description.js";
 
 class Mode extends React.Component {
   /**
@@ -11,20 +10,20 @@ class Mode extends React.Component {
     super(props);
     this.state = { data: "Clicking the buttons to start a test." };
     this.setNewNumber = this.setNewNumber.bind(this);
-  };
+  }
 
   setNewNumber(i) {
     switch (i) {
       case "s":
-        this.setState({ data: "Short Mode Test" })
+        this.setState({ data: "Short Mode Test" });
         break;
 
       case "m":
-        this.setState({ data: "Medium Mode Test" })
+        this.setState({ data: "Medium Mode Test" });
         break;
 
       case "l":
-        this.setState({ data: "Long Mode Test" })
+        this.setState({ data: "Long Mode Test" });
         break;
 
       default:
@@ -45,14 +44,29 @@ class Mode extends React.Component {
       <div>
         <Description description={this.state.data} />
         <div className="Mode-Group">
-          <div className="Mode-Selection Mode-Selection-Short" onMouseEnter={() => this.setNewNumber("s")}>
-            <a href="/test/short" className="Mode-Button">Short</a>
+          <div
+            className="Mode-Selection Mode-Selection-Short"
+            onMouseEnter={() => this.setNewNumber("s")}
+          >
+            <a href="/test/short" className="Mode-Button">
+              Short
+            </a>
           </div>
-          <div className="Mode-Selection Mode-Selection-Medium" onMouseEnter={() => this.setNewNumber("m")}>
-            <a href="/test/medium" className="Mode-Button">Medium</a>
+          <div
+            className="Mode-Selection Mode-Selection-Medium"
+            onMouseEnter={() => this.setNewNumber("m")}
+          >
+            <a href="/test/medium" className="Mode-Button">
+              Medium
+            </a>
           </div>
-          <div className="Mode-Selection Mode-Selection-Long" onMouseEnter={() => this.setNewNumber("l")}>
-            <a href="/test/long" className="Mode-Button">Long</a>
+          <div
+            className="Mode-Selection Mode-Selection-Long"
+            onMouseEnter={() => this.setNewNumber("l")}
+          >
+            <a href="/test/long" className="Mode-Button">
+              Long
+            </a>
           </div>
         </div>
       </div>

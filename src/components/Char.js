@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Char extends Component {
   /**
@@ -12,16 +11,19 @@ class Char extends Component {
     this.state = {
       expected: this.props.expected,
       input: this.props.input,
-      isActive: this.props.isActive
+      isActive: this.props.isActive,
     };
   }
 
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.input !== prevState.input || nextProps.isActive !== prevState.isActive) {
-      return ({
+    if (
+      nextProps.input !== prevState.input ||
+      nextProps.isActive !== prevState.isActive
+    ) {
+      return {
         input: nextProps.input,
-        isActive: nextProps.isActive
-      })
+        isActive: nextProps.isActive,
+      };
     }
     return null;
   }
@@ -64,16 +66,16 @@ class Char extends Component {
       </div>
     );
   }
-};
+}
 
 Char.defaultProps = {
   input: null,
-}
+};
 
 Char.propTypes = {
   isActive: PropTypes.bool,
   expected: PropTypes.string.isRequired,
-  input: PropTypes.string
+  input: PropTypes.string,
 };
 
 export default Char;

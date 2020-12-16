@@ -2,6 +2,30 @@
 
 A typing test developed by Brian Seidl and Yilun Yang.
 
+## Demo
+
+A demo of this application can be found [here](https://typing.brianseidl.com).
+
+## Setup for Local Development
+
+#### Requirements
+
+- This project was developed on MacOS, but should also work on linux as well.
+- npm
+- pip
+
+##### Install Packages
+
+```
+npm install
+```
+
+##### Install Pre-Commit Hooks
+
+```
+pre-commit install
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

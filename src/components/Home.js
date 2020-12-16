@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../logo.svg';
-import Mode from './Mode.js';
+import React from "react";
+import logo from "../logo.svg";
+import Mode from "./Mode.js";
 
 class Home extends React.Component {
   /**
@@ -20,7 +20,7 @@ class Home extends React.Component {
           <Mode />
         </header>
       </div>
-    )
+    );
   }
 }
 

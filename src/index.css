@@ -1,167 +1,185 @@
 #text-box {
-    max-height:500px;
-    overflow-y: auto;
+  max-height: 500px;
+  overflow-y: auto;
 }
 
 .typer-char {
-    font-size: 30px;
-    /*height: 48px;
+  font-size: 30px;
+  /*height: 48px;
     width: 21px;*/
-    font-family: "pt-mono","Courier New","Courier","Lucida Sans Typewriter","Lucida Typewriter","monospace";
-    font-weight: 700;
-    margin: 10px 2px 10px 0px;
-    display:inline;
-    position: relative;
-    text-align: center;
-    border-radius: 5px;
+  font-family: "pt-mono", "Courier New", "Courier", "Lucida Sans Typewriter",
+    "Lucida Typewriter", "monospace";
+  font-weight: 700;
+  margin: 10px 2px 10px 0px;
+  display: inline;
+  position: relative;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .input-hidden {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .letter-active {
-	border-style: none none solid none;
-	border-width: 3px;
-	color: #3295db;
-	border-radius: 0;
-	animation: 2s blink 1s ease-out infinite alternate;
+  border-style: none none solid none;
+  border-width: 3px;
+  color: #3295db;
+  border-radius: 0;
+  animation: 2s blink 1s ease-out infinite alternate;
 }
 
 .letter-correct {
-	color: #95c590;
-	background-color: #edf7e7;
-	transition: color .12s ease-in-out;
+  color: #95c590;
+  background-color: #edf7e7;
+  transition: color 0.12s ease-in-out;
 }
 
 @keyframes shake {
-    0%, 50%     {transform: translateX(5px);}
-    25%, 75%    {transform: translateX(-5px);}
-    100%        {transform: translateX(0px);}
+  0%,
+  50% {
+    transform: translateX(5px);
+  }
+  25%,
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 @keyframes fadeOut {
-   0%       {opacity: 1;}
-   85%      {opacity: 1;}
-   100%     {opacity: 0; display: none;}
+  0% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
 }
 
 @keyframes drop {
-    25%         {transform: transalatY(25px);}
-    100%        {transform: translateY(30px);}
+  25% {
+    transform: transalatY(25px);
+  }
+  100% {
+    transform: translateY(30px);
+  }
 }
 
 .letter-incorrect {
-	background-color: #ffdcd9;
-	color: #d55b60;
-	transition: color .12s ease-in-out;
+  background-color: #ffdcd9;
+  color: #d55b60;
+  transition: color 0.12s ease-in-out;
 }
 
-.letter-not-entered {}
+.letter-not-entered {
+}
 
 .wrong-animation {
-    display: inline-block;
-    position: absolute;
-    animation-name: shake, fadeOut, drop;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+  display: inline-block;
+  position: absolute;
+  animation-name: shake, fadeOut, drop;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
 }
 
-
-
-
 .Mode-Group {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Mode-Selection {
-    width: 120px;
-    height: 50px;
-    border: 1px solid white;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 50px; 
+  width: 120px;
+  height: 50px;
+  border: 1px solid white;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
 }
 
 span {
-    cursor:default;
+  cursor: default;
 }
 
 .Mode-Selection-Short {
-    border-radius: 0.45rem 0rem 0rem 0.45rem;
+  border-radius: 0.45rem 0rem 0rem 0.45rem;
 }
 
 .Mode-Selection-Medium {
-    border-radius: 0rem 0rem 0rem 0rem;
+  border-radius: 0rem 0rem 0rem 0rem;
 }
 
 .Mode-Selection-Long {
-    border-radius: 0rem 0.45rem 0.45rem 0rem;
+  border-radius: 0rem 0.45rem 0.45rem 0rem;
 }
 
 .Mode-Selection:hover {
-    background-color: rgb(200, 200, 200);
+  background-color: rgb(200, 200, 200);
 }
 
 .Mode-Description {
-    height: 200px;
-    width:360px;
-    font-size: calc(10px + 2vmin);
-    color: black;
-    overflow: hidden;
-    margin-bottom: 30px;
+  height: 200px;
+  width: 360px;
+  font-size: calc(10px + 2vmin);
+  color: black;
+  overflow: hidden;
+  margin-bottom: 30px;
 }
 
 .Mode-Button {
-    color: black;
+  color: black;
 }
 
-.Mode-Button:link{
-    color: black;
-} 
+.Mode-Button:link {
+  color: black;
+}
 
 .Mode-Button:visited {
-    color: black;
-}  
+  color: black;
+}
 
 .Mode-Button:hover {
-    color: black;
-    text-decoration:none;
+  color: black;
+  text-decoration: none;
 }
 
 .App-header {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: black;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
 }
 
 .Mode-Group {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Mode-Selection {
-    width: 120px;
-    height: 50px;
-    border: 1px solid black;
-    text-align: center;
-    vertical-align: middle;
-    line-height: 50px; 
+  width: 120px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
 }
 
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 .App-logo {
-    height: 300px;
-    pointer-events: none;
+  height: 300px;
+  pointer-events: none;
 }
