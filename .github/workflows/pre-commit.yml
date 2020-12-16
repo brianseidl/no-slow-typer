@@ -1,0 +1,16 @@
+# This workflow will run pre-commit on pull requests in the case
+# some people "forget" to run it before they commit their code.
+
+name: pre-commit
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - uses: pre-commit/action@v2.0.0
