@@ -45,13 +45,13 @@ class Mode extends React.Component {
       <div>
         <Description description={this.state.data} />
         <div className="Mode-Group">
-          <div className="Mode-Selection Mode-Selection-Short" onMouseEnter={() => this.setNewNumber("s")}>
+          <div id="short_btn" className="Mode-Selection Mode-Selection-Short" onMouseEnter={() => this.setNewNumber("s")}>
             <a href="/test/short" className="Mode-Button">Short</a>
           </div>
-          <div className="Mode-Selection Mode-Selection-Medium" onMouseEnter={() => this.setNewNumber("m")}>
+          <div id="medium_btn" className="Mode-Selection Mode-Selection-Medium" onMouseEnter={() => this.setNewNumber("m")}>
             <a href="/test/medium" className="Mode-Button">Medium</a>
           </div>
-          <div className="Mode-Selection Mode-Selection-Long" onMouseEnter={() => this.setNewNumber("l")}>
+          <div id="long_btn" className="Mode-Selection Mode-Selection-Long" onMouseEnter={() => this.setNewNumber("l")}>
             <a href="/test/long" className="Mode-Button">Long</a>
           </div>
         </div>
