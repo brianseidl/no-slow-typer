@@ -11,7 +11,7 @@ export class Description extends React.Component {
    */
   render() {
     return (
-      <div key="des" className="Mode-Description">
+      <div role="description_txt" key="des" className="Mode-Description">
         {this.props.description}
       </div>
     );
