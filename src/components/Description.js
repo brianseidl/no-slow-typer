@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export class Description extends React.Component {
   /**
@@ -15,5 +15,5 @@ export class Description extends React.Component {
         {this.props.description}
       </div>
     );
-   }
+  }
 }

@@ -1,4 +1,4 @@
-version: '3.2'
+version: "3.2"
 services:
   web:
     build:
@@ -10,8 +10,7 @@ services:
     stdin_open: true
     environment:
       - NODE_ENV=dev
-    command:
-      sh -c '
+    command: sh -c '
       if test -d node_modules;
       then
       echo node_modules_exists;

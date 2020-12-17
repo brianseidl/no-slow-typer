@@ -1,6 +1,5 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Stats extends Component {
   /**
@@ -14,7 +13,7 @@ class Stats extends Component {
       incorrectCount: this.props.incorrectCount,
       startTime: this.props.startTime,
       currTime: Date.now(),
-      isStopped: this.props.isStopped
+      isStopped: this.props.isStopped,
     };
   }
 
@@ -23,14 +22,11 @@ class Stats extends Component {
    *   when the component is mounted.
    */
   componentDidMount() {
-    this.intervalID = setInterval(
-      () => {
-        if (!this.state.isStopped) {
-          this.setState({ currTime: Date.now() });
-        }
-      },
-      100
-    );
+    this.intervalID = setInterval(() => {
+      if (!this.state.isStopped) {
+        this.setState({ currTime: Date.now() });
+      }
+    }, 100);
   }
 
   /**
@@ -49,7 +45,7 @@ class Stats extends Component {
    */
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps !== prevState) {
-      return (nextProps)
+      return nextProps;
     }
     return null;
   }
@@ -65,12 +61,15 @@ class Stats extends Component {
   render() {
     // correct and inorrect chars used to calculate wpm
     let timePassed = this.state.currTime - this.state.startTime;
-    let wpm = Math.floor(((this.state.correctCount + this.state.incorrectCount) * 60) / (5 * timePassed / 1000));
+    let wpm = Math.floor(
+      ((this.state.correctCount + this.state.incorrectCount) * 60) /
+        ((5 * timePassed) / 1000)
+    );
 
     return (
       <div data-testid="stats-div">
         <table className="table table-striped table">
-          <thead >
+          <thead>
             <tr className="table-primary">
               <th scope="col">Stat</th>
               <th scope="col">Value</th>
@@ -80,7 +79,7 @@ class Stats extends Component {
             <tr>
               <th scope="row">Time</th>
               {/* This is horrible, should be a clock that should always be rendering but idgaf */}
-              <td data-testid="time">{(timePassed / 1000)}s</td>
+              <td data-testid="time">{timePassed / 1000}s</td>
             </tr>
             <tr>
               <th scope="row">Correct count</th>
@@ -96,7 +95,13 @@ class Stats extends Component {
             </tr>
             <tr>
               <th scope="row">Error Percentage</th>
-              <td data-testid="error-percentage">{(100 * this.state.incorrectCount / (this.state.incorrectCount + this.state.correctCount)).toFixed(2)}%</td>
+              <td data-testid="error-percentage">
+                {(
+                  (100 * this.state.incorrectCount) /
+                  (this.state.incorrectCount + this.state.correctCount)
+                ).toFixed(2)}
+                %
+              </td>
             </tr>
           </tbody>
         </table>
@@ -109,7 +114,7 @@ Stats.propTypes = {
   correctCount: PropTypes.number.isRequired,
   incorrectCount: PropTypes.number.isRequired,
   startTime: PropTypes.number.isRequired,
-  isStopped: PropTypes.bool
+  isStopped: PropTypes.bool,
 };
 
 export default Stats;
