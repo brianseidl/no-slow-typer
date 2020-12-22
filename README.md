@@ -23,6 +23,7 @@ npm install
 ##### Install Pre-Commit Hooks
 
 ```
+pip install pre-commit
 pre-commit install
 ```
 
