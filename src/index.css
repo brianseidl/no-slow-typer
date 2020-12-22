@@ -3,10 +3,20 @@
   overflow-y: auto;
 }
 
+#stats-table {
+  table-layout: fixed;
+}
+
+#stats-key {
+  width: 70%;
+}
+
+#stats-value {
+  width: 30%;
+}
+
 .typer-char {
   font-size: 30px;
-  /*height: 48px;
-    width: 21px;*/
   font-family: "pt-mono", "Courier New", "Courier", "Lucida Sans Typewriter",
     "Lucida Typewriter", "monospace";
   font-weight: 700;

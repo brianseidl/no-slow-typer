@@ -1,5 +1,5 @@
 import React from "react";
-import { Description } from "./Description.js";
+import Description from "./Description.js";
 
 class Mode extends React.Component {
   /**

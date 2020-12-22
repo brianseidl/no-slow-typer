@@ -68,17 +68,20 @@ class Stats extends Component {
 
     return (
       <div data-testid="stats-div">
-        <table className="table table-striped table">
+        <table id="stats-table" className="table table-striped">
           <thead>
             <tr className="table-primary">
-              <th scope="col">Stat</th>
-              <th scope="col">Value</th>
+              <th id="stats-key" scope="col">
+                Stat
+              </th>
+              <th id="stats-value" scope="col">
+                Value
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Time</th>
-              {/* This is horrible, should be a clock that should always be rendering but idgaf */}
               <td data-testid="time">{timePassed / 1000}s</td>
             </tr>
             <tr>
